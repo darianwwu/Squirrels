@@ -1,0 +1,76 @@
+{
+  "segments": [
+    {
+      "video_idx": 0,
+      "start_frame": 205,
+      "end_frame": 350,
+      "start_s": 6.840166666666667,
+      "end_s": 11.678333333333333,
+      "motion_score_max": 0.023695987654320988
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 30450,
+      "end_frame": 32910,
+      "start_s": 1016.015,
+      "end_s": 1098.097,
+      "motion_score_max": 0.8990123456790123
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 39620,
+      "end_frame": 39910,
+      "start_s": 1321.9873333333333,
+      "end_s": 1331.6636666666666,
+      "motion_score_max": 0.006527777777777778
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 42005,
+      "end_frame": 42330,
+      "start_s": 1401.5668333333333,
+      "end_s": 1412.411,
+      "motion_score_max": 0.009851466049382716
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 43335,
+      "end_frame": 44560,
+      "start_s": 1445.9445,
+      "end_s": 1486.8186666666668,
+      "motion_score_max": 0.7854436728395062
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 44775,
+      "end_frame": 44885,
+      "start_s": 1493.9925,
+      "end_s": 1497.6628333333333,
+      "motion_score_max": 0.005314429012345679
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 44915,
+      "end_frame": 46100,
+      "start_s": 1498.6638333333333,
+      "end_s": 1538.2033333333334,
+      "motion_score_max": 0.3215895061728395
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 56800,
+      "end_frame": 56980,
+      "start_s": 1895.2266666666667,
+      "end_s": 1901.2326666666668,
+      "motion_score_max": 0.010632716049382715
+    },
+    {
+      "video_idx": 0,
+      "start_frame": 63855,
+      "end_frame": 65035,
+      "start_s": 2130.6285000000003,
+      "end_s": 2170.001166666667,
+      "motion_score_max": 0.7842071759259259
+    }
+  ]
+}

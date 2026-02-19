@@ -1,0 +1,73 @@
+{
+  "videos": [
+    "input\\20241101_TrepN_04_in (6).mp4"
+  ],
+  "time_models": {
+    "0": {
+      "a_epoch": 1730452027.8496764,
+      "b_per_frame": 0.03283972284470105
+    }
+  },
+  "segments": [
+    {
+      "segment_idx": 1,
+      "video_idx": 0,
+      "video_name": "20241101_TrepN_04_in (6).mp4",
+      "start_frame": 30450,
+      "end_frame": 32910,
+      "start_dt": "2024-11-01 10:23:47.819237",
+      "end_dt": "2024-11-01 10:25:08.604955",
+      "duration_s": 80.785718,
+      "squirrel_conf_max": 0.9536963105201721,
+      "motion_score_max": 0.8990123456790123
+    },
+    {
+      "segment_idx": 4,
+      "video_idx": 0,
+      "video_name": "20241101_TrepN_04_in (6).mp4",
+      "start_frame": 43335,
+      "end_frame": 44560,
+      "start_dt": "2024-11-01 10:30:50.959066",
+      "end_dt": "2024-11-01 10:31:31.187726",
+      "duration_s": 40.22866,
+      "squirrel_conf_max": 0.9585086703300476,
+      "motion_score_max": 0.7854436728395062
+    },
+    {
+      "segment_idx": 5,
+      "video_idx": 0,
+      "video_name": "20241101_TrepN_04_in (6).mp4",
+      "start_frame": 44775,
+      "end_frame": 44885,
+      "start_dt": "2024-11-01 10:31:38.248267",
+      "end_dt": "2024-11-01 10:31:41.860636",
+      "duration_s": 3.612369,
+      "squirrel_conf_max": 0.7889212965965271,
+      "motion_score_max": 0.005314429012345679
+    },
+    {
+      "segment_idx": 6,
+      "video_idx": 0,
+      "video_name": "20241101_TrepN_04_in (6).mp4",
+      "start_frame": 44915,
+      "end_frame": 46100,
+      "start_dt": "2024-11-01 10:31:42.845828",
+      "end_dt": "2024-11-01 10:32:21.760900",
+      "duration_s": 38.915072,
+      "squirrel_conf_max": 0.9518702626228333,
+      "motion_score_max": 0.3215895061728395
+    },
+    {
+      "segment_idx": 8,
+      "video_idx": 0,
+      "video_name": "20241101_TrepN_04_in (6).mp4",
+      "start_frame": 63855,
+      "end_frame": 65035,
+      "start_dt": "2024-11-01 10:42:04.830179",
+      "end_dt": "2024-11-01 10:42:43.581052",
+      "duration_s": 38.750873,
+      "squirrel_conf_max": 0.9608991146087646,
+      "motion_score_max": 0.7842071759259259
+    }
+  ]
+}
