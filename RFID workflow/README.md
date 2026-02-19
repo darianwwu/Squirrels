@@ -2,6 +2,7 @@
 
 *Part of the [Squirrels in Town](../README.md) study project — Group 3: Jan Becker, Deekshita Ram, Darian Weiß*
 
+Author of this workflow: Darian Weiß
 ---
 
 ## Overview
