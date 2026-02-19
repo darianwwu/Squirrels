@@ -119,9 +119,9 @@ All settings are in the configuration cell (`## 2) Configuration`). They are gro
 
 | Parameter | Default | Description |
 |---|---|---|
-| `MANUAL_CONFIRM_SEGMENTS` | `True` | When `True`, after YOLO detects a squirrel segment, a thumbnail of the best frame is shown and you are asked to confirm or reject it. Set to `False` to skip manual review and accept all YOLO-detected segments automatically. |
+| `MANUAL_CONFIRM_SEGMENTS` | `False` | When `True`, after YOLO detects a squirrel segment, a thumbnail of the best frame is shown and you are asked to confirm or reject it. Set to `False` to skip manual review and accept all YOLO-detected segments automatically. |
 
-> **Recommendation:** Keep this `True` for your first run on new footage to get a feel for detection quality. Switch to `False` once you trust the thresholds for a given camera setup, or when processing large batches overnight.
+> **Recommendation:** The default is `False` for efficient batch processing. Switch to `True` for your first run on new footage or a new camera setup to verify that the detection thresholds are working correctly.
 
 ---
 
@@ -142,9 +142,9 @@ These parameters control the background subtraction pass that finds candidate se
 | Parameter | Default | Description |
 |---|---|---|
 | `MOTION_SAMPLE_FPS` | `6.0` | How many frames per second are sampled for motion. Lower values are faster but may miss brief movements. |
-| `MIN_MOTION_PCT` | `0.0025` | Fraction of pixels that must change per frame to count as motion (0.25%). **Increase** this if wind/lighting causes too many false triggers. **Decrease** if subtle squirrel movements are being missed. |
-| `MOTION_GAP_S` | `2.0` | A gap of non-motion shorter than this (in seconds) is bridged — the segment is kept intact. **Increase** if visits are wrongly split into multiple segments due to brief stillness. |
-| `MOTION_PRE_S` | `1.0` | Seconds of video added before the detected motion start. Increase to catch the squirrel arriving. |
+| `MIN_MOTION_PCT` | `0.005` | Fraction of pixels that must change per frame to count as motion (0.5%). **Increase** this if wind/lighting causes too many false triggers. **Decrease** if subtle squirrel movements are being missed. |
+| `MOTION_GAP_S` | `3.0` | A gap of non-motion shorter than this (in seconds) is bridged — the segment is kept intact. **Increase** if visits are wrongly split into multiple segments due to brief stillness. |
+| `MOTION_PRE_S` | `1.5` | Seconds of video added before the detected motion start. Increase to catch the squirrel arriving. |
 | `MOTION_POST_S` | `1.5` | Seconds of video added after the detected motion end. Increase to catch the squirrel leaving. |
 | `MOTION_MIN_LEN_S` | `2.0` | Segments shorter than this (in seconds) are discarded. Helps eliminate spurious motion flickers. |
 
@@ -156,7 +156,7 @@ These parameters control the YOLO inference pass that verifies whether a motion 
 
 | Parameter | Default | Description |
 |---|---|---|
-| `YOLO_CONF_SQUIRREL` | `0.55` | Minimum detection confidence to keep a segment. **Lower** this (e.g. `0.4`) if real visits are being missed. **Raise** it (e.g. `0.7`) if too many non-squirrel segments pass through. |
+| `YOLO_CONF_SQUIRREL` | `0.70` | Minimum detection confidence to keep a segment. **Lower** this (e.g. `0.5`) if real visits are being missed. **Raise** it (e.g. `0.85`) if too many non-squirrel segments pass through. |
 | `YOLO_SAMPLE_FPS` | `2.0` | How many frames per second are passed to YOLO within each motion segment. Higher values are more accurate but slower. |
 | `YOLO_IMGSZ` | `640` | Input image size for YOLO inference. Larger values increase accuracy but slow down processing. |
 | `YOLO_DEVICE` | `"cpu"` | Compute device for YOLO. Set to `"0"` to use the first GPU — this is **strongly recommended** for large datasets, as GPU inference is typically 10–50× faster. |

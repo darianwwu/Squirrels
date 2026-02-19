@@ -1,1 +1,3 @@
 backups/
+# Ignore all generated output files but keep the outputs/ folders tracked
+**/outputs/**
