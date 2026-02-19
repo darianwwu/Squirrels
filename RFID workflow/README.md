@@ -86,7 +86,7 @@ RFID workflow/
 
    | study_site | box_nr | ID         | name   | sex  | date       | time     | unit_nr |
    |------------|-------:|------------|--------|------|------------|----------|--------:|
-   | trep_s     | 1      | 000815E3CB | Stitch | male | 02.10.2024 | 10:48:54 | 1       |
+   | trep_s     | 2      | 000815E3CB | Stitch | male | 15.10.2024 | 10:48:54 | 1       |
 
 3. **Ensure the YOLO weights** are at `models/best.pt`.  
    The model must detect at least the class `squirrel`.  
