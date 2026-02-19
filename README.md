@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Squirrels in Town — Detecting and Tracking the Synurbization of Squirrels in Berlin
 
 **Studyproject:** Squirrels in Town – Detecting and Tracking the Synurbization of Squirrels in Berlin  
