@@ -47,3 +47,6 @@ Synchronizes RFID sensor events with box camera videos to compute:
 - CSV summary tables for downstream analysis
 
 → See [RFID workflow/README.md](RFID%20workflow/README.md) for setup and usage instructions.
+
+## Squirrel Detection App:
+See here: https://github.com/janbecker2/Squirrel-Detector
