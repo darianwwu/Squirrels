@@ -3,3 +3,6 @@
 *.mov
 *.avi
 *.mkv
+
+# Exception: small example output video
+!example_outputs/overlay_kept_segments.mp4
