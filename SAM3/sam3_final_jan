@@ -1,0 +1,152 @@
+import numpy as np
+import torch
+from transformers import Sam3VideoModel, Sam3VideoProcessor
+from accelerate import Accelerator
+import cv2 as cv
+import time
+
+print("Successfully imported libaries.")
+
+# Device and model setup
+device = Accelerator().device
+MODEL_ID = "facebook/sam3"
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+DTYPE = torch.bfloat16
+
+#click for od
+#model = Sam3TrackerVideoModel.from_pretrained(MODEL_ID, torch_dtype=DTYPE).to(DEVICE).eval()
+#processor = Sam3TrackerVideoProcessor.from_pretrained(MODEL_ID)
+
+#text prompt for od
+model = Sam3VideoModel.from_pretrained(MODEL_ID).to(DEVICE, dtype=DTYPE).eval()
+processor = Sam3VideoProcessor.from_pretrained(MODEL_ID)
+
+print("Successfully loaded models.")
+
+# Load video and preprocess frames
+from transformers.video_utils import load_video
+video_url = "F:/Outside4.mp4"
+video_frames_original_size, _ = load_video(video_url)
+video_frames, _ = load_video(video_url)
+
+TARGET_SIZE = 512  # z.B. 512 oder 640
+
+resized_frames = []
+for frame in video_frames:
+    h, w = frame.shape[:2]
+
+    scale = TARGET_SIZE / max(h, w)
+    new_w = int(w * scale)
+    new_h = int(h * scale)
+
+    resized = cv.resize(frame, (new_w, new_h), interpolation=cv.INTER_AREA)
+    resized_frames.append(resized)
+
+video_frames = resized_frames
+
+# Initialize video inference session
+inference_session = processor.init_video_session(
+    video=video_frames,
+    inference_device=device,
+    dtype=torch.bfloat16,
+)
+
+# Add text prompt for od
+text_prompt = "Squirrel"
+processor.add_text_prompt(
+    inference_session=inference_session,
+    text=text_prompt,
+)
+
+print(type(video_frames))
+print(type(inference_session))
+
+# Function to show single frame with mask
+def showSingleFrame(inference_session, video_frames, frame_idx):
+    # Run inference for the frame
+    model_outputs = model(
+        inference_session=inference_session,
+        frame_idx=frame_idx,
+    )
+
+    # Postprocess outputs to get masks
+    processed_outputs = processor.postprocess_outputs(
+        inference_session,
+        model_outputs
+    )
+
+    # Show frame with mask 
+    output = {frame_idx: processed_outputs}
+    print(output)
+    frame_output = output[frame_idx]
+
+    mask = frame_output["masks"][0].detach().cpu().numpy().astype("uint8") * 255
+
+    frame = video_frames[frame_idx].copy()
+    frame[mask == 255] = [0, 255, 0]
+
+    cv.imshow("Mask", frame)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
+
+#showSingleFrame(inference_session, video_frames, 100)
+
+# Function to show whole video with masks
+def showWholeVideo(inference_session, video_frames, output_path=None):
+    writer = None
+    # initialize video writer if output path is not none
+    if output_path is not None:
+        h, w = video_frames[0].shape[:2]
+        writer = cv.VideoWriter(
+            output_path,
+            cv.VideoWriter_fourcc(*"mp4v"),
+            30,  
+            (w, h)
+        )
+
+    total_frames = len(video_frames)
+    start_time = time.time()
+
+    # Iterator over frames
+    for i, model_outputs in enumerate(model.propagate_in_video_iterator(inference_session), 1):
+        frame_idx = model_outputs.frame_idx
+
+        # Postprocess outputs to get masks 
+        processed_outputs = processor.postprocess_outputs(
+            inference_session,
+            model_outputs
+        )
+
+        # Get current frame and overlay mask
+        frame = video_frames[frame_idx].copy()
+        
+        if processed_outputs["masks"].numel() > 0:
+            mask = processed_outputs["masks"][0].detach().cpu().numpy().astype("uint8") * 255
+
+            overlay = frame.copy()
+            overlay[mask == 255] = [0, 255, 0]
+            alpha = 0.5
+            frame = cv.addWeighted(overlay, alpha, frame, 1 - alpha, 0)
+
+        cv.imshow("Segmented Video", frame)
+        if cv.waitKey(1) & 0xFF == ord('q'):
+            break
+
+        if writer is not None:
+            writer.write(frame)
+
+        # Progress display
+        elapsed = time.time() - start_time
+        avg_per_frame = elapsed / i
+        remaining_time = avg_per_frame * (total_frames - i)
+        print(f"Frame {i}/{total_frames} processed. "
+              f"Elapsed: {elapsed:.1f}s, "
+              f"Estimated remaining: {remaining_time:.1f}s", end="\r")
+
+    cv.destroyAllWindows()
+    if writer is not None:
+        writer.release()
+    print("\nFinished processing all frames")
+
+
+showWholeVideo(inference_session, video_frames, "F:/sam3_whole.mp4")
