@@ -25,6 +25,9 @@ This project provides an end-to-end Jupyter Notebook workflow (`squirrel_rfid_wo
 8. Aggregate totals and export results
 9. Render an **overlay video** of kept segments
 
+> Note: Part of this workflow is to show off the different analysis steps we took during the course. 
+> We are aware that some steps could be skipped or optimized, but we wanted to keep the notebook as a record of our process.
+
 ---
 
 ## Prerequisites
