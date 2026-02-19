@@ -20,16 +20,17 @@ The repository is organized into **workflow-specific subfolders**, each containi
 
 ```
 Squirrels/
-├── RFID workflow/          # Synchronize RFID data with box camera footage
-│   ├── input/              # Video files + RFID Excel sheet
-│   ├── models/             # YOLO weights
-│   ├── outputs/            # Auto-generated results
-│   ├── squirrel_rfid_workflow.ipynb
-│   └── README.md           # Workflow-specific documentation
+├── RFID workflow/                   # Synchronize RFID data with box camera footage
+│   ├── input/                       # Video files + RFID Excel sheet (antenna_master_sheet.xlsx)
+│   ├── models/                      # YOLO weights (best.pt)
+│   ├── outputs/                     # Auto-generated results
+│   ├── example_outputs/             # Example outputs for reference
+│   ├── squirrel_rfid_workflow.ipynb # Main notebook for the RFID workflow
+│   └── README.md                    # Workflow-specific documentation
 │
-├── ...                     # Further workflow folders will be added here
+├── ...                             # Further workflow folders will be added here
 │
-└── README.md               # This file
+└── README.md                       # This file
 ```
 
 ---
