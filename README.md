@@ -46,6 +46,3 @@ Synchronizes RFID sensor events with box camera videos to compute:
 - CSV summary tables for downstream analysis
 
 → See [RFID workflow/README.md](RFID%20workflow/README.md) for setup and usage instructions.
-=======
-
->>>>>>> 1d1f09fd8dacebabf5ad6641bb28688e9c8782f0
