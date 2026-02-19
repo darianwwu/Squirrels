@@ -1,11 +1,6 @@
-# Squirrels in Town — Detecting and Tracking the Synurbization of Squirrels in Berlin
+# RFID Workflow
 
-**Final Project Report**  
-**Studyproject:** Squirrels in Town – Detecting and Tracking the Synurbization of Squirrels in Berlin  
-**Supervisors:** Benjamin Risse, Luis Garcia-Rodriguez & Sinah Drenske  
-**Semester:** WiSe 2025/26
-
-**Group 3:** Jan Becker, Deekshita Ram, Darian Weiß
+*Part of the [Squirrels in Town](../README.md) study project — Group 3: Jan Becker, Deekshita Ram, Darian Weiß*
 
 ---
 
@@ -56,7 +51,7 @@ Download: https://ffmpeg.org/download.html
 ## Folder Structure
 
 ```
-Squirrels/
+RFID workflow/
 ├── input/                          # Place your video files here (do NOT rename them!)
 │   ├── YYYYMMDD_SITE_BOXNR_in.mp4  # Expected filename format (see below)
 │   ├── antenna_master_sheet.xlsx   # RFID data file
@@ -70,7 +65,8 @@ Squirrels/
 │   ├── summary_per_squirrel.csv
 │   ├── overlay_kept_segments.mp4
 │   └── downscaled/
-└── squirrel_rfid_workflow.ipynb    # Main workflow notebook
+├── squirrel_rfid_workflow.ipynb    # Main workflow notebook
+└── README.md                       # This file
 ```
 
 ---
