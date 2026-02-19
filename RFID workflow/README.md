@@ -78,7 +78,7 @@ RFID workflow/
 1. **Place at least one video file** in the `input/` folder.
    - **Do not rename the video files.** The workflow automatically extracts metadata (study site, box number, date) from the original filename.
    - Expected filename format: `YYYYMMDD_SITE_BOXNR_in.mp4`  
-     Example: `20241002_trep_s_1_in.mp4`
+     Example: `20241015_TrepS_02_in (8).mp4`
    - If the filename cannot be parsed, RFID filtering is skipped (a warning is shown).
 
 2. **Place the RFID Excel file** at `input/antenna_master_sheet.xlsx`.  
