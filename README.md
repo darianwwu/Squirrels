@@ -20,17 +20,34 @@ The repository is organized into **workflow-specific subfolders**, each containi
 
 ```
 Squirrels/
-├── RFID workflow/                   # Synchronize RFID data with box camera footage
-│   ├── input/                       # Video files + RFID Excel sheet (antenna_master_sheet.xlsx)
-│   ├── models/                      # YOLO weights (best.pt)
-│   ├── outputs/                     # Auto-generated results
-│   ├── example_outputs/             # Example outputs for reference
-│   ├── squirrel_rfid_workflow.ipynb # Main notebook for the RFID workflow
-│   └── README.md                    # Workflow-specific documentation
+├── RFID workflow/                        # Synchronize RFID data with box camera footage
+│   ├── input/                            # Video files + RFID Excel sheet (antenna_master_sheet.xlsx)
+│   ├── models/                           # YOLO weights (best.pt)
+│   ├── outputs/                          # Auto-generated results
+│   ├── example_outputs/                  # Example outputs for reference
+│   ├── squirrel_rfid_workflow.ipynb      # Main notebook for the RFID workflow
+│   └── README.md                         # Workflow-specific documentation
 │
-├── ...                             # Further workflow folders will be added here
+├── Background Subtraction/               # Background subtraction scripts
+│   └── background_subtraction_jan.py
 │
-└── README.md                       # This file
+├── Covert Labelbox Data to YOLO/         # Convert Labelbox annotations to YOLO format
+│   └── convert_labelbox_jan.py
+│
+├── Cut Video/                            # Video cutting utilities
+│   └── cutting_vid_jan.py
+│
+├── Entry State/                          # Entry state detection
+│   └── entrystate_jan.py
+│
+├── SAM3/                                 # SAM3 segmentation
+│   └── sam3_final_jan
+│
+├── YOLO/                                 # YOLO training & inference scripts
+│   └── Jan/
+│       └── yolo_test.py
+│
+└── README.md                             # This file
 ```
 
 ---
