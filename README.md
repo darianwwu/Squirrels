@@ -10,9 +10,9 @@
 
 ## About this Repository
 
-This repository contains the code and workflows developed as part of the study project *Squirrels in Town*, which investigates the synurbization of squirrels in Berlin. The goal is to automatically analyze camera trap footage and RFID sensor data collected at squirrel feeding boxes across the city.
+This repository contains the code and workflows developed as part of the study project *Squirrels in Town*, which investigates the synurbization of squirrels in Berlin. The goal is to automatically analyze camera trap footage, outside footage and RFID sensor data collected at squirrel feeding boxes across different locations in the city.
 
-The repository is organized into **workflow-specific subfolders**, each containing its own notebook, data folders, and documentation.
+The repository is organized into **workflow-specific subfolders**, each containing its own notebook (or python scripts), data folders and documentation.
 
 ---
 
